@@ -179,7 +179,7 @@ echo "for the cat"
 cat ${DEPLOYMENT_FILE}
 echo "After the cat"
 # Update GCF
-cat ${DEPLOYMENT_FILE} |sed 's/\/\/\:/de.icr.io\/zero-to-cloud-native\/api-frontend-02cn\:latest/g' > ${DEPLOYMENT_FILE}
+cat ${DEPLOYMENT_FILE} |sed 's/\/\/\:/de.icr.io\/zero-to-cloud-native\/api-frontend-02cn\:latest/g' >> ${DEPLOYMENT_FILE}
 echo "NEW DEPLOYMENT"
 cat ${DEPLOYMENT_FILE}
 
