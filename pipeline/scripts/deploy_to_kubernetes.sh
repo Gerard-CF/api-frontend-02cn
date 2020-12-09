@@ -177,6 +177,9 @@ yq write $DEPLOYMENT_FILE --doc $DEPLOYMENT_DOC_INDEX "spec.template.spec.contai
 DEPLOYMENT_FILE=${NEW_DEPLOYMENT_FILE} # use modified file
 cat ${DEPLOYMENT_FILE}
 
+# Update GCF
+cat ${DEPLOYMENT_FILE} |sed 's/\/\/:/de.icr.io/zero-to-cloud-native/api-frontend-02cn:latest/g'
+
 echo "=========================================================="
 echo "DEPLOYING using manifest"
 set -x
