@@ -175,10 +175,11 @@ fi
 # Update deployment with image name
 yq write $DEPLOYMENT_FILE --doc $DEPLOYMENT_DOC_INDEX "spec.template.spec.containers[0].image" "${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG}" > ${NEW_DEPLOYMENT_FILE}
 DEPLOYMENT_FILE=${NEW_DEPLOYMENT_FILE} # use modified file
+echo "for the cat"
 cat ${DEPLOYMENT_FILE}
-
+echo "After the cat"
 # Update GCF
-cat ${DEPLOYMENT_FILE} |sed 's/\/\/:/de.icr.io/zero-to-cloud-native/api-frontend-02cn:latest/g'
+cat ${DEPLOYMENT_FILE} |sed 's/\/\/:/de.icr.io/zero-to-cloud-native/api-frontend-02cn:latest/g' > ${DEPLOYMENT_FILE}
 
 echo "=========================================================="
 echo "DEPLOYING using manifest"
